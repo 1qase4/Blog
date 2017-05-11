@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Blog</title>
 </head>
 <body>
-$END$
+    <H3>这是一个index.html 文件{{ author }}
+    </H3>
+<p>-------------------------</p>
+{% for classify in classifys %}
+<h1>{{ classify.id }}</h1>
+    <p>{{ classify.name }}</p>
+{% endfor  %}
+
 </body>
 </html>
