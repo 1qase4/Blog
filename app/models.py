@@ -31,6 +31,7 @@ class Blog(db.Model):
 
     id = db.Column(db.CHAR(12),primary_key=True)
     title = db.Column(db.String(512))
+    summary = db.Column(db.String(4000))
     content = db.Column(db.Text)
     create_time = db.Column(db.DateTime, default=datetime.utcnow)
     update_time = db.Column(db.DateTime, default=datetime.utcnow)
@@ -43,12 +44,19 @@ class Classify(db.Model):
     create_time = db.Column(db.DateTime, default=datetime.utcnow)
     update_time = db.Column(db.DateTime, default=datetime.utcnow)
 
+    # 获取所有的分类
+    @staticmethod
+    def getClassifys():
+        classifys = Classify.query.all()
+        return classifys
+
 # 博客-分类信息
 class BlogClassify(db.Model):
     __tablename__ = 'blog_classify'
+
     id = db.Column(db.CHAR(12), primary_key=True)
-    blog_id = db.Column(db.CHAR(12))
-    classify = db.Column(db.CHAR(12))
+    blog_id = db.Column(db.CHAR(12),db.ForeignKey('blog.id'))
+    classify_id = db.Column(db.CHAR(12),db.ForeignKey('classify.id'))
     create_time = db.Column(db.DateTime, default=datetime.utcnow)
     update_time = db.Column(db.DateTime, default=datetime.utcnow)
 

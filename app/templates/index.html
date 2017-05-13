@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Blog</title>
-</head>
+{% include 'base.html' ignore missing %}
 <body>
     <H3>这是一个index.html 文件{{ author }}
     </H3>
 <p>-------------------------</p>
-{% for classify in classifys %}
-<h1>{{ classify.id }}</h1>
-    <p>{{ classify.name }}</p>
-{% endfor  %}
+
+{% for blog in blogs %}
+    <p>{{ blog.id }}111</p>
+    <p>{{ blog.title }}222</p>
+    <p>{{ blog.summary }}222</p>
+    {% endfor  %}
 
 </body>
 </html>
