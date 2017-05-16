@@ -6,13 +6,7 @@ app = create_app()
 
 # 初始化全局变量
 app.jinja_env.globals['classifys'] = Classify.getClassifys
-
-
 manager = Manager(app)
-
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
 
 if __name__ == '__main__':
 

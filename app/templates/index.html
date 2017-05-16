@@ -1,16 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include 'base.html' ignore missing %}
+<head>
+    <meta charset="UTF-8">
+    <title>个人博客</title>
+    <meta name="keywords" content="个人博客" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/static/css/common.css"/>
+    <link rel="stylesheet" href="/static/iconfont/iconfont.css"/>
+    <link rel="stylesheet" href="/static/css/index.css"/>
+    <!--[if lt IE 9]>
+{#    <script src="js/html5.js"></script>#}
+    <![endif]-->
+</head>
+{#{% include 'base.html' ignore missing %}#}
 <body>
-    <H3>这是一个index.html 文件{{ author }}
-    </H3>
-<p>-------------------------</p>
+{#header#}
+<section>
+    {% include 'head.html' ignore missing %}
+    <div id="content" class="clearfix">
+{#        左侧文章列表#}
+        <div id="lfAside" class="lf-aside">
+            <p class="title"> <i class="iconfont icon-tuijian" style="color: #ff0000;"></i>文章推荐</p>
+            <hr>
+            <div class="article-list">
+{#                文章列表#}
+                <div class="article-item">
+                    <h1>浅谈前端js</h1>
+                    <p class="description">楼上的回复卢卡斯的发生的发生免费活动对方身水电费快乐就是地方可视对讲防守打法史蒂芬孙多所多大所多所份的似懂非懂所发生的分发的</p>
+                    <div class="item-bottom">
+                        <span><i class="iconfont icon-shijian"></i>2016-12-12</span>
+                        <span><i class="iconfont icon-fenlei"></i>前端</span>
+                        <span><i class="iconfont icon-dianji1"></i>100次</span>
+                        <a href="" class="rt"> <i class="iconfont icon-yuedu"></i> 阅读全文 ></a>
+                    </div>
+                </div>
+                <div class="article-item">
+                    <h1>浅谈前端js</h1>
+                    <p class="description">楼上的回复卢卡斯的发生的发生免费活动对方身水电费快乐就是地方可视对讲防守打法史蒂芬孙多所多大所多所份的似懂非懂所发生的分发的</p>
+                    <div class="item-bottom">
+                        <span><i class="iconfont icon-shijian"></i>2016-12-12</span>
+                        <span><i class="iconfont icon-fenlei"></i>前端</span>
+                        <span><i class="iconfont icon-dianji1"></i>100次</span>
+                        <a href="" class="rt"> <i class="iconfont icon-yuedu"></i> 阅读全文 ></a>
+                    </div>
+                </div>
+                <div class="article-item">
+                    <h1>浅谈前端js</h1>
+                    <p class="description">楼上的回复卢卡斯的发生的发生免费活动对方身水电费快乐就是地方可视对讲防守打法史蒂芬孙多所多大所多所份的似懂非懂所发生的分发的</p>
+                    <div class="item-bottom">
+                        <span><i class="iconfont icon-shijian"></i>2016-12-12</span>
+                        <span><i class="iconfont icon-fenlei"></i>前端</span>
+                        <span><i class="iconfont icon-dianji1"></i>100次</span>
+                        <a href="" class="rt"> <i class="iconfont icon-yuedu"></i> 阅读全文 ></a>
+                    </div>
+                </div>
+                <div class="article-item">
+                    <h1>浅谈前端js</h1>
+                    <p class="description">楼上的回复卢卡斯的发生的发生免费活动对方身水电费快乐就是地方可视对讲防守打法史蒂芬孙多所多大所多所份的似懂非懂所发生的分发的</p>
+                    <div class="item-bottom">
+                        <span><i class="iconfont icon-shijian"></i>2016-12-12</span>
+                        <span><i class="iconfont icon-fenlei"></i>前端</span>
+                        <span><i class="iconfont icon-dianji1"></i>100次</span>
+                        <a href="" class="rt"> <i class="iconfont icon-yuedu"></i> 阅读全文 ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+{#        右侧文章分类#}
+        <div id="rtAside" class="rt-aside">
+{#            <div class="about">#}
+{#                <h2> <i class="iconfont icon-dengluhou"></i>&nbsp;关于本站</h2>#}
+{#                <img src="" alt="">#}
+{#                <p>博主:匆匆那年</p>#}
+{#                <p>职业:</p>#}
+{#                <p>简介:</p>#}
+{#            </div>#}
+{#            文章分类#}
+            <div class="categorieslist">
+                <h2 class="categories-title">分类</h2>
+                <ul>
+                    <li><a href="#">html</a></li>
+                    <li><a href="#">css</a></li>
+                    <li><a href="#">javascript</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<script  type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
+<script>
 
-{% for blog in blogs %}
-    <p>{{ blog.id }}111</p>
-    <p>{{ blog.title }}222</p>
-    <p>{{ blog.summary }}222</p>
-    {% endfor  %}
-
+</script>
 </body>
 </html>
