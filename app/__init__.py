@@ -24,7 +24,7 @@ def create_app():
     app.register_blueprint(auth,url_prefix='/auth')
 
     from .main import main
-    app.register_blueprint(main, url_prefix='/main')
+    app.register_blueprint(main, url_prefix='')
 
     return app
 

@@ -10,7 +10,7 @@ from app.models import Blog, BlogClassify
 from . import main
 
 
-@main.route('/index')
+@main.route('/index.html')
 def index():
     return classify('9D4ABD5A8B12')
     # o = User.query.all()
@@ -25,6 +25,13 @@ def index():
     # classifys = Classify.getClassifys()
 
 
+@main.route('/about.html')
+def about():
+    return render_template("about.html")
+
+@main.route('/messageBoard.html')
+def messageBoard():
+    return render_template("messageBoard.html")
 
 @main.route('/classify/<string:id>/')
 def classify(id):

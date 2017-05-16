@@ -1,8 +1,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../static/css/common.css"/>
+    <link rel="stylesheet" href="../static/css/index.css"/>
     {% for classify in classifys() %}
     <p>{{ classify.id }}111</p>
-    <p>{{ classify.name }}222</p>
+    <p>{{ classify.name }}2225555</p>
+    {% endfor  %}
+
+    <H3>这是一个index.html 文件{{ author }}
+    </H3>
+    <p>-------------------------</p>
+
+    {% for blog in blogs %}
+    <p>{{ blog.id }}111</p>
+    <p>{{ blog.title }}222</p>
+    <p>{{ blog.summary }}222</p>
     {% endfor  %}
 </head>
