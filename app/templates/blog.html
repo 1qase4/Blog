@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>个人博客模板古典系列之——江南墨卷</title>
+<meta name="keywords" content="个人博客模板古典系列之——江南墨卷" />
+<meta name="description" content="个人博客模板古典系列之——江南墨卷" />
+<link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+</head>
+<body>
+<div id="wrapper">
+<header>
+  <div class="headtop"></div>
+  <div class="contenttop">
+    <div class="logo f_l">个人博客模板古典系列之——江南墨卷</div>
+    <div class="search f_r">
+      <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+        <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
+        <input name="show" value="title" type="hidden">
+        <input name="tempid" value="1" type="hidden">
+        <input name="tbname" value="news" type="hidden">
+        <input name="Submit" class="input_submit" value="搜索" type="submit">
+      </form>
+    </div>
+    <div class="blank"></div>
+    <nav>
+      <div  class="navigation">
+        <ul class="menu">
+          <li><a href="index.html">网站首页</a></li>
+          <li><a href="#">关于我</a>
+            <ul>
+              <li><a href="about.html">个人简介</a></li>
+              <li><a href="listpic.html">个人相册</a></li>
+            </ul>
+          </li>
+          <li><a href="#">我的日记</a>
+            <ul>
+              <li><a href="newslistpic.html">个人日记</a></li>
+              <li><a href="newslistpic.html">学习笔记</a></li>
+            </ul>
+          </li>
+          <li><a href="newslistpic.html">技术文章</a> </li>
+          <li><a href="#">给我留言</a> </li>
+        </ul>
+      </div>
+    </nav>
+    <SCRIPT type=text/javascript>
+	// Navigation Menu
+	$(function() {
+		$(".menu ul").css({display: "none"}); // Opera Fix
+		$(".menu li").hover(function(){
+			$(this).find('ul:first').css({visibility: "visible",display: "none"}).slideDown("normal");
+		},function(){
+			$(this).find('ul:first').css({visibility: "hidden"});
+		});
+	});
+</SCRIPT>
+  </div>
+</header>
+<div class="container">
+  <div class="con_content">
+    <div class="about_box">
+      <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">个人日记</a></span><b>个人日记</b></h2>
+      <div class="dtxw box">
+        <li>
+          <div class="dttext f_l">
+            <ul>
+              <h2><p>{{ article.title }}</p></h2>
+
+                {{ article.content | safe}}
+{#              <p><span style="color: rgb(63, 63, 63); font-family: &quot;microsoft yahei&quot;; white-space: normal;">最近，一直跟着公司技术牛人在搞大数据相关的东西，主要涉及的是环境搭建，同时也了解下整个hadoop生态系统相关的东西，真是让我大开眼界，这个在之后的博文中再来与大家分享。&nbsp;</span><br/><span style="color: rgb(63, 63, 63); font-family: &quot;microsoft yahei&quot;; white-space: normal;">今天，笔者给大家介绍一个代码生成器，这个是笔者的主管写的，写的确实不错，主要是基于公司的jquery easyUI + springMVC + myBatis这套框架写的，可以根据一个数据库表生成model、mapper.xml、dao接口以及service、controller、jsp页面等相关的东西，包含增删改查等操作，节省开发时间。然后，笔者在此代码生成器上修改了几个bug，同时兼容了一下mysql。&nbsp;</span><br/><span style="color: rgb(63, 63, 63); font-family: &quot;microsoft yahei&quot;; white-space: normal;">这个代码生成器工具使用的核心是freemarker，一个用Java语言编写的模板引擎，它基于模板来生成文本输出。FreeMarker与Web容器无关，即在Web运行时，它并不知道Servlet或HTTP。它不仅可以用作表现层的实现技术，而且还可以用于生成XML，JSP或Java 等。&nbsp;</span><br/><span style="color: rgb(63, 63, 63); font-family: &quot;microsoft yahei&quot;; white-space: normal;">下面，笔者开始进行核心代码的介绍。&nbsp;</span></p><p><img src="http://127.0.0.1:7088/static/upload/1513328411.JPG"/></p><p><span style="color: rgb(63, 63, 63); font-family: &quot;microsoft yahei&quot;; white-space: normal;">首先，我们必须指定哪张表，然后通过jdbc获取这个表的信息以及表字段相关的信息。&nbsp;</span><br/><span style="color: rgb(63, 63, 63); font-family: &quot;microsoft yahei&quot;; white-space: normal;">这里，将所有的配置写入config.properties：</span></p><p><span style="color: rgb(63, 63, 63); font-family: &quot;microsoft yahei&quot;; white-space: normal;"><br/></span></p><p><span style="color: rgb(63, 63, 63); font-family: &quot;microsoft yahei&quot;; white-space: normal;"><br/></span></p><p><span style="color: rgb(63, 63, 63); font-family: &quot;microsoft yahei&quot;; white-space: normal;"><br/></span></p><p><span style="color: rgb(63, 63, 63); font-family: &quot;microsoft yahei&quot;; white-space: normal;"><br/></span></p>#}
+
+            </ul>
+          </div>
+
+{#          <div class="xwpic f_r"><a href="/"><img src="{{ url_for('static', filename='images/02.jpg') }}"></a></div>#}
+        </li>
+<span>{{ article.createdt }}</span>
+      </div>
+
+    </div>
+  </div>
+  <div class="blank"></div>
+  <!-- container代码 结束 -->
+
+  <footer>
+    <div class="footer">
+      <div class="f_l">
+        <p>All Rights Reserved 版权所有：<a href="http://www.yangqq.com">杨青个人博客</a> 备案号：蜀ICP备00000000号</p>
+      </div>
+      <div class="f_r textr">
+        <p>Design by DanceSmile</p>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

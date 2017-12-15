@@ -6,8 +6,8 @@ import json
 from datetime import datetime
 from sqlalchemy import DateTime
 
-from . import db
 
+from . import db
 
 
 class User(db.Model):
@@ -21,25 +21,35 @@ class User(db.Model):
     createdt = db.Column(db.DateTime)
     updatedt = db.Column(db.DateTime)
 
-    @property
-    def json(self):
-        return to_json(self, self.__class__)
+
+
 
 # 博客信息
-class Blog(db.Model):
-    __tablename__ = 'blog'
+class Article(db.Model):
+    __tablename__ = 'article'
 
-    id = db.Column(db.CHAR(12),primary_key=True)
-    title = db.Column(db.String(512))
-    summary = db.Column(db.String(4000))
+    id = db.Column(db.INTEGER, primary_key=True)
+    title = db.Column(db.String(128))
+    classfication = db.Column(db.String(32))
+    abstract = db.Column(db.String(4000))
     content = db.Column(db.Text)
-    create_time = db.Column(db.DateTime, default=datetime.utcnow)
-    update_time = db.Column(db.DateTime, default=datetime.utcnow)
+    author = db.Column(db.String(32))
+    createdt = db.Column(db.DateTime, default=datetime.utcnow)
+    updatedt = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __init__(self,title,classfication,abstract,content):
+        self.title = title
+        self.classfication = classfication
+        self.abstract = abstract
+        self.content = content
+        self.author = 'zchong'
+        # self.createdt = datetime.utcnow
+        # self.updatedt = datetime.utcnow
 
 # 分类
 class Classify(db.Model):
     __tablename__ = 'classify'
-    id = db.Column(db.CHAR(12),primary_key=True)
+    id = db.Column(db.CHAR(12), primary_key=True)
     name = db.Column(db.String(128))
     create_time = db.Column(db.DateTime, default=datetime.utcnow)
     update_time = db.Column(db.DateTime, default=datetime.utcnow)
@@ -50,27 +60,21 @@ class Classify(db.Model):
         classifys = Classify.query.all()
         return classifys
 
+
 # 博客-分类信息
 class BlogClassify(db.Model):
     __tablename__ = 'blog_classify'
 
     id = db.Column(db.CHAR(12), primary_key=True)
-    blog_id = db.Column(db.CHAR(12),db.ForeignKey('blog.id'))
-    classify_id = db.Column(db.CHAR(12),db.ForeignKey('classify.id'))
+    blog_id = db.Column(db.CHAR(12), db.ForeignKey('blog.id'))
+    classify_id = db.Column(db.CHAR(12), db.ForeignKey('classify.id'))
     create_time = db.Column(db.DateTime, default=datetime.utcnow)
     update_time = db.Column(db.DateTime, default=datetime.utcnow)
 
 
-
-
-
-
-
-
-
-
 def datetimestr(datetime):
     return datetime.strftime('%Y-%m-%d %H:%M:%S')
+
 
 def to_json(inst, cls):
     convert = dict()
@@ -87,4 +91,4 @@ def to_json(inst, cls):
             d[c.name] = str()
         else:
             d[c.name] = v
-    return json.dumps(d,ensure_ascii=False)
+    return json.dumps(d, ensure_ascii=False)

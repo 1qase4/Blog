@@ -9,6 +9,5 @@ app.jinja_env.globals['classifys'] = Classify.getClassifys
 manager = Manager(app)
 
 if __name__ == '__main__':
-
     manager.run()
 
